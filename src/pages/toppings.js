@@ -48,7 +48,7 @@ const Toppings = () => {
   `)
 
   const toppings = (data?.allMarkdownRemark?.nodes[0].excerpt || '')
-    .replaceAll('\n', '')
+    .replace(/\n/g, '')
     .split('-   ')
     .slice(1)
 
