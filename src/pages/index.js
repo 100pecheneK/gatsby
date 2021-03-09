@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Button from '../components/Button'
 import Loader from '../components/Loader'
 import Seo from '../components/Seo'

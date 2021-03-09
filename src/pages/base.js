@@ -55,7 +55,6 @@ const Base = () => {
       }
     }
   `)
-  console.log('Base -> data', data)
   const bases = (data?.allMarkdownRemark?.nodes[0].excerpt || '')
     .replaceAll('\n', '')
     .split('-   ')
