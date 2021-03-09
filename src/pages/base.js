@@ -56,7 +56,7 @@ const Base = () => {
     }
   `)
   const bases = (data?.allMarkdownRemark?.nodes[0].excerpt || '')
-    .replaceAll('\n', '')
+    .replace(/\n/g, '')
     .split('-   ')
     .slice(1)
   const { addBase, pizza } = usePizza()
