@@ -65,7 +65,12 @@ const Header = () => {
           <h1>Pizza Joint</h1>
         </Link>
         <Link to='/article'>
-          <h2>Check our article</h2>
+          <h2 style={{ textDecoration: 'underline' }}>Check our article</h2>
+        </Link>
+        <Link to='/pizzas'>
+          <h2 style={{ textDecoration: 'underline' }}>
+            or check our pizza list!
+          </h2>
         </Link>
       </motion.div>
     </header>

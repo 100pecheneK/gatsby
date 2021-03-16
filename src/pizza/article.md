@@ -1,5 +1,6 @@
 ---
 title: Article
+thumb: ../images/thumbs/1.jpeg
 ---
 
 # h1 Heading 8-)

@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import React from 'react'
 import Button from '../components/Button'
 import Loader from '../components/Loader'
 import Seo from '../components/Seo'
 import { usePizza } from '../context/PizzaContext'
+import { GatsbyImage, getSrc } from 'gatsby-plugin-image'
 
 const containerVariants = {
   hidden: {
@@ -19,12 +20,13 @@ const containerVariants = {
     transition: { ease: 'easeInOut' },
   },
 }
-export default function Home() {
+export default function Home({ data }) {
   const { clearPizza } = usePizza()
-
+  const imagePath = getSrc(data.file)
   return (
     <>
-      <Seo title='Home' />
+      <Seo title='Home' imageSrc={[imagePath]} />
+
       <motion.div
         className='home container'
         variants={containerVariants}
@@ -36,8 +38,19 @@ export default function Home() {
         <Link to='/base'>
           <Button onClick={clearPizza}>Create Your Pizza</Button>
         </Link>
+        <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} />
         <Loader />
       </motion.div>
     </>
   )
 }
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "wall.jpeg" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
+`
